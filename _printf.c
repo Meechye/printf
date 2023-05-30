@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
+=======
+#include "main.h"
+
+>>>>>>> 08ea690ad983b2f6d14cf1e62b08cb3ebc92126d
 /**
  * _printf - produces output according to a format.
  *
@@ -14,18 +19,36 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+<<<<<<< HEAD
 	
 	int count; /*counts the number of characters printed*/
+=======
+	int i, count = 0;
+>>>>>>> 08ea690ad983b2f6d14cf1e62b08cb3ebc92126d
 
+	print_d data[] = {
+		{"c", print_char},
+		{"s", print_string}
+	};
 	va_start(args, format);
+<<<<<<< HEAD
 	
 	count = 0;
 	
 
 	while (*format != '\0') /*as long as the characters are not null byte*/
+=======
+	if (!format)
+		return (-1);
+	i = 0;
+	while (format && *(format + i))
+>>>>>>> 08ea690ad983b2f6d14cf1e62b08cb3ebc92126d
 	{
-		if (*format == '%')  /*note when the program encounters a "%"*/
+		if (format[i] == '%' && (!format[i + 1] || format[i + 1] == ' '))
+			return (-1);
+		else if (*(format + i) == '%' && *(format + i + 1) == 'c')
 		{
+<<<<<<< HEAD
 			format++; /*Move past '%'*/
 		}
 
@@ -48,6 +71,19 @@ int _printf(const char *format, ...)
 				s++;
 				count++;
 			}
+
+			count = count + data[0].f(args);
+			i++;
+		}
+		else if (*(format + i) == '%' && *(format + i + 1) == 's')
+		{
+			count = count + data[1].f(args);
+			i++;
+		}
+		else if (*(format + i) == '%' && *(format + i + 1) == '%')
+		{
+			count = count + _putchar('%');
+			i++;
 		}
 		else if (*format == '%')
 		{
@@ -57,13 +93,17 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			/*Print any other character*/
-			_putchar(*format);
+			_putchar(*(format + i));
 			count++;
 		}
+<<<<<<< HEAD
 		format++;
 	}
 
+=======
+		i++;
+	}
+>>>>>>> 08ea690ad983b2f6d14cf1e62b08cb3ebc92126d
 	va_end(args);
 	return (count);
 }
