@@ -31,6 +31,6 @@ int print_unsigned(va_list args);
 int print_char(va_list args);
 int print_binary(va_list args);
 int print_octal(va_list args);
-int width(con char *format, int *i, va_list);
+int print_width(const char *format, int *i, va_list);
 
 #endif /* MAIN_H */
