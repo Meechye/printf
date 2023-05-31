@@ -3,8 +3,8 @@
 #include "main.h"
 
 /**
-* get_width - determines the required width for the printed output
-* @format:formatted string that serves as the format for the printed arguments
+* get_width - function that determines the required width fori printed output
+* @format: formatted string that serves as the format for printed arguments
 * @i: the list of the arguument to be printed
 * @list: the list of arguments
 *
@@ -17,7 +17,7 @@ int get_width(const char *format, int *i, va_list list)
 
 	for (curr_i = *i + 1; format[curr_i] != '\0'; curr_i++)
 	{
-		if (isdigit(format[curr_i]))
+		if (is_digit(format[curr_i]))
 		{
 			width *= 10;
 			width += format[curr_i] - '0';
