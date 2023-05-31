@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <ctype.h>
 #include "main.h"
 
 /**
-* _width - calculaes the width for printing
-* @format: formatted string in which to print the arguments
-* @i: list of arguument to be printed
-* @list: list of arguments
+* get_width - determines the required width for the printed output
+* @format:formatted string that serves as the format for the printed arguments
+* @i: the list of the arguument to be printed
+* @list: the list of arguments
 *
-* Return: width
+* Return: the width
 */
-int _width(const char *format, int *i, va_list list)
+int get_width(const char *format, int *i, va_list list)
 {
 	int curr_i;
 	int width = 0;
